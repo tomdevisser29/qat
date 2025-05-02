@@ -1,0 +1,172 @@
+"use client";
+
+import * as React from "react";
+import {
+  Accessibility,
+  Anchor,
+  BarChart,
+  BookOpen,
+  Bot,
+  GlobeIcon,
+  LifeBuoy,
+  Send,
+  Settings2,
+  ShieldCheck,
+} from "lucide-react";
+
+import { useSession } from "next-auth/react";
+
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavSecondary } from "@/components/nav-secondary";
+import { NavUser } from "@/components/nav-user";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+
+const data = {
+  navMain: [
+    {
+      title: "Websites",
+      url: "#",
+      icon: GlobeIcon,
+      isActive: true,
+      items: [
+        {
+          title: "All",
+          url: "#",
+        },
+        {
+          title: "MainWP",
+          url: "#",
+        },
+        {
+          title: "Manual",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Automations",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "Optimizations",
+          url: "#",
+        },
+        {
+          title: "DevOps",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Documentation",
+      url: "#",
+      icon: BookOpen,
+      items: [
+        {
+          title: "Logs",
+          url: "#",
+        },
+        {
+          title: "Changelog",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Settings",
+      url: "#",
+      icon: Settings2,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Display",
+          url: "#",
+        },
+      ],
+    },
+  ],
+  navSecondary: [
+    {
+      title: "Report a bug",
+      url: "#",
+      icon: LifeBuoy,
+    },
+    {
+      title: "Suggest a feature",
+      url: "#",
+      icon: Send,
+    },
+  ],
+  projects: [
+    {
+      name: "Performance",
+      url: "#",
+      icon: BarChart,
+    },
+    {
+      name: "Accessibility",
+      url: "#",
+      icon: Accessibility,
+    },
+    {
+      name: "Security",
+      url: "#",
+      icon: ShieldCheck,
+    },
+  ],
+};
+
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { data: session } = useSession();
+
+  const user = {
+    name: session?.user?.name || "Unknown",
+    email: session?.user?.email || "unknown@example.com",
+    avatar: session?.user?.image || "/avatars/shadcn.jpg",
+  };
+
+  return (
+    <Sidebar variant="sidebar" collapsible="icon" {...props}>
+      <SidebarHeader>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <a href="#">
+                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <Anchor />
+                </div>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">
+                    Quality Assurance Tool
+                  </span>
+                  <span className="truncate text-xs">Dashboard</span>
+                </div>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarHeader>
+      <SidebarContent>
+        <NavMain items={data.navMain} />
+        <NavProjects projects={data.projects} />
+        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={user} />
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
