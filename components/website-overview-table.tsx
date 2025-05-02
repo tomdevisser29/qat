@@ -27,6 +27,26 @@ const websites = [
     lastPerformance: 90,
     security: "Clean",
   },
+  {
+    url: "kidsproof.nl",
+    badges: ["Kinsta"],
+    mainwpBadges: ["Production", "High risk"],
+    php: "8.1",
+    lastOptimization: "14 hours ago",
+    performance: 85,
+    lastPerformance: 90,
+    security: "Clean",
+  },
+  {
+    url: "kidsproof.nl",
+    badges: ["Kinsta"],
+    mainwpBadges: ["Production", "High risk"],
+    php: "8.1",
+    lastOptimization: "14 hours ago",
+    performance: 85,
+    lastPerformance: 90,
+    security: "Clean",
+  },
 ];
 
 export default function WebsiteOverviewTable() {
