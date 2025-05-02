@@ -7,6 +7,7 @@ import {
   BarChart,
   BookOpen,
   Bot,
+  CalendarClock,
   GlobeIcon,
   LifeBuoy,
   Send,
@@ -16,6 +17,7 @@ import {
 
 import { useSession } from "next-auth/react";
 
+import { ToolSwitcher } from "@/components/tool-switcher";
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavSecondary } from "@/components/nav-secondary";
@@ -25,12 +27,19 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
 const data = {
+  tools: [
+    {
+      name: "Qat",
+      logo: Anchor,
+    },
+    {
+      name: "Puc",
+      logo: CalendarClock,
+    },
+  ],
   navMain: [
     {
       title: "Websites",
@@ -141,23 +150,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar variant="sidebar" collapsible="icon" {...props}>
       <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Anchor />
-                </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">
-                    Quality Assurance Tool
-                  </span>
-                  <span className="truncate text-xs">Dashboard</span>
-                </div>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <ToolSwitcher tools={data.tools} />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
