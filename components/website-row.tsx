@@ -1,6 +1,7 @@
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown } from "lucide-react";
+import Link from "next/link";
 
 type Website = {
   url: string;
@@ -22,7 +23,7 @@ export default function WebsiteRow({ website }: WebsiteRowProps) {
     <TableRow>
       <TableCell className="font-medium">
         <div className="flex gap-2">
-          {website.url}
+          <Link href="/dashboard/website">{website.url}</Link>
           {website.badges.map((badge, index) => {
             return (
               <Badge variant="default" key={index}>

@@ -43,7 +43,7 @@ const data = {
   navMain: [
     {
       title: "Websites",
-      url: "#",
+      url: "/dashboard",
       icon: GlobeIcon,
       isActive: true,
       items: [
