@@ -15,7 +15,7 @@ import {
   ScreenShareOff,
 } from "lucide-react";
 
-export default function WebsiteWidgets() {
+export default function SiteWidgets() {
   return (
     <div className="grid auto-rows-min gap-4 md:grid-cols-4">
       <Card className="@container/card">

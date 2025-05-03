@@ -42,7 +42,7 @@ const data = {
   ],
   navMain: [
     {
-      title: "Websites",
+      title: "Sites",
       url: "/dashboard",
       icon: GlobeIcon,
       isActive: true,
@@ -144,7 +144,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const user = {
     name: session?.user?.name || "Unknown",
     email: session?.user?.email || "unknown@example.com",
-    avatar: session?.user?.image || "/avatars/shadcn.jpg",
+    avatar: session?.user?.image || "",
   };
 
   return (

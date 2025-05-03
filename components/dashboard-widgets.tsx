@@ -53,7 +53,7 @@ export default function DashboardWidgets() {
 
       <Card className="@container/card">
         <CardHeader className="relative">
-          <CardDescription>Amount of websites</CardDescription>
+          <CardDescription>Amount of sites</CardDescription>
           <CardTitle className="@[250px]/card:text-3xl text-2xl font-semibold tabular-nums">
             632
           </CardTitle>

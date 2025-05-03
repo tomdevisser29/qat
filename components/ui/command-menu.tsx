@@ -28,11 +28,11 @@ export function CommandMenu() {
 
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
-      <CommandInput placeholder="Find a website..." />
+      <CommandInput placeholder="Find a site..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Websites">
-          <Link href="/dashboard/website" onClick={() => setOpen(false)}>
+        <CommandGroup heading="Sites">
+          <Link href="/dashboard/site/0" onClick={() => setOpen(false)}>
             <CommandItem>kidsproof.nl</CommandItem>
           </Link>
           <CommandItem>logisticforce.nl</CommandItem>
